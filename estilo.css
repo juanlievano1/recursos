@@ -1,0 +1,186 @@
+/* Marca de @juanlievano1, la misma de los carruseles (preset "blanco", instagram/marca/manual-de-marca.md):
+   fondo blanco que baja a #F1F1F1 en los bordes, títulos en Fraunces 800, texto en Manrope, tinta #1E2A44,
+   un solo resaltado (marcador #D3DCFF en la mitad de abajo), objetos 3D de Fluent y la píldora de tinta.
+   Verde solo para lo que está bien. Una columna: cabezas centradas como las slides, texto a la izquierda. */
+:root{
+  --fondo:#FFFFFF;
+  --fondo-borde:#F1F1F1;
+  --tinta:#1E2A44;
+  --gris:#6B7080;
+  --marcador:#D3DCFF;
+  --azul:#3355FF;
+  --tarjeta:#F2F2F2;
+  --linea:#E4E4E4;
+  --bien:#2F7D5B;
+  --sombra:0 18px 40px rgba(0,0,0,.08);
+  --sombra-objeto:rgba(0,0,0,.16);
+  --titulo:'Fraunces', Georgia, 'Times New Roman', serif;
+  --texto:'Manrope', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--fondo);-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  color:var(--tinta);
+  font-family:var(--texto);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+/* El degradado de las slides, fijo a la pantalla (en iPhone background-attachment:fixed no funciona). */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;
+  background:radial-gradient(ellipse at 50% 40%, var(--fondo) 0%, var(--fondo) 50%, var(--fondo-borde) 100%);
+}
+p,h1,h2,h3,ul,ol{margin:0}
+h1,h2,h3{text-wrap:balance}
+strong{font-weight:800}
+a{color:var(--azul);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--azul);outline-offset:3px;border-radius:8px}
+
+.hoja{
+  max-width:42rem;
+  margin:0 auto;
+  padding-block:2.5rem 2rem;
+  padding-left:max(18px, env(safe-area-inset-left, 0px));
+  padding-right:max(18px, env(safe-area-inset-right, 0px));
+  display:flex;
+  flex-direction:column;
+  gap:4rem;
+}
+
+/* Resaltado: el marcador de los carruseles. En las plantillas marca lo que llena quien la usa. */
+mark{
+  color:inherit;
+  background:linear-gradient(transparent 58%, var(--marcador) 58%, var(--marcador) 94%, transparent 94%);
+  padding:0 .1em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+}
+mark.llenar{
+  font-weight:800;
+  background:linear-gradient(transparent 46%, var(--marcador) 46%, var(--marcador) 96%, transparent 96%);
+}
+
+/* Objetos 3D */
+.obj{display:block;height:auto;filter:drop-shadow(0 16px 14px var(--sombra-objeto))}
+
+/* Portada */
+.portada{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.15rem}
+.portada .obj{width:clamp(130px, 36vw, 180px);margin-bottom:.75rem}
+h1{
+  font-family:var(--titulo);
+  font-weight:800;
+  font-size:clamp(2.4rem, 10vw, 4rem);
+  line-height:1.0;
+  letter-spacing:-.022em;
+}
+.sub{font-size:1.14rem;line-height:1.45;opacity:.86;max-width:34rem;text-wrap:balance}
+.leyenda{
+  display:inline-flex;align-items:center;gap:.6rem;flex-wrap:wrap;justify-content:center;
+  background:var(--fondo);border:1px solid var(--linea);border-radius:999px;
+  padding:.5rem 1.1rem;font-size:.95rem;font-weight:500;margin-top:.35rem;
+}
+
+/* Cabeza de cada sección, centrada como una slide */
+.seccion{display:flex;flex-direction:column;gap:1.4rem}
+.cabeza{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem}
+.cabeza .obj{width:clamp(96px, 26vw, 124px);margin-bottom:.6rem}
+.contador{font-size:.95rem;font-weight:500;color:var(--gris)}
+h2{
+  font-family:var(--titulo);
+  font-weight:800;
+  font-size:clamp(1.75rem, 6.6vw, 2.35rem);
+  line-height:1.06;
+  letter-spacing:-.02em;
+}
+.cabeza .sub{font-size:1.05rem}
+.cuerpo{display:flex;flex-direction:column;gap:1rem}
+
+/* Etiquetas en mayúscula espaciadas (NO DIGAS / DI en los carruseles) */
+.etq{font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.etq.gris{color:var(--gris)}
+
+/* Tarjetas */
+.tarjeta{
+  background:var(--fondo);border:1px solid var(--linea);border-radius:20px;
+  box-shadow:var(--sombra);padding:1.15rem 1.25rem;
+  display:flex;flex-direction:column;gap:.45rem;min-width:0;
+}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+/* Prompts para copiar */
+.prompt{background:var(--fondo);border:1px solid var(--linea);border-radius:20px;box-shadow:var(--sombra);overflow:hidden}
+.prompt-top{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:.7rem .7rem .7rem 1.2rem;border-bottom:1px solid var(--linea);background:var(--tarjeta);
+}
+.prompt pre{
+  margin:0;padding:1.1rem 1.2rem 1.3rem;
+  font:500 .97rem/1.65 var(--texto);
+  white-space:pre-wrap;overflow-wrap:anywhere;color:var(--tinta);
+}
+.frase{
+  display:flex;align-items:center;justify-content:space-between;gap:.9rem;
+  background:var(--fondo);border:1px solid var(--linea);border-radius:20px;box-shadow:var(--sombra);
+  padding:.75rem .7rem .75rem 1.2rem;
+}
+.frase p{font-weight:700;min-width:0;line-height:1.4}
+
+/* La píldora de tinta ("Desliza →" en los carruseles) */
+.pildora{
+  flex:none;cursor:pointer;text-decoration:none;
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  font:700 .92rem/1 var(--texto);
+  color:var(--fondo);background:var(--tinta);
+  border:0;border-radius:999px;padding:.72rem 1.2rem;min-height:2.65rem;
+  transition:background-color .15s ease;
+}
+.pildora:hover{background:#2C3B5E}
+.pildora.ok{background:var(--bien)}
+
+/* Listas */
+.revisar{list-style:none;padding:0;display:flex;flex-direction:column;gap:.55rem}
+.revisar li{display:grid;grid-template-columns:1.6rem 1fr;align-items:baseline}
+.revisar li::before{content:"";width:.85rem;height:.85rem;border:2px solid var(--tinta);border-radius:4px;transform:translateY(.12rem)}
+.pasos-extra{padding-left:1.3rem;display:flex;flex-direction:column;gap:1.1rem}
+.pasos-extra li::marker{font-weight:800}
+.pasos-extra li > .prompt{margin-top:.8rem}
+.requisitos{padding-left:1.2rem;display:flex;flex-direction:column;gap:.4rem}
+.nota{font-size:.93rem;color:var(--gris);margin-top:.6rem}
+.gris{color:var(--gris)}
+
+/* El correo a mano */
+.correo{background:var(--fondo);border:1px solid var(--linea);border-radius:20px;box-shadow:var(--sombra);overflow:hidden}
+.correo-top{padding:.8rem 1.2rem;border-bottom:1px solid var(--linea);background:var(--tarjeta)}
+.correo-cuerpo{padding:1.25rem 1.2rem 1.45rem;display:flex;flex-direction:column;gap:.9rem}
+.correo-cuerpo ul{padding-left:1.2rem;display:flex;flex-direction:column;gap:.3rem}
+.razon{text-align:center;color:var(--gris);font-size:1.08rem;line-height:1.45;text-wrap:balance;max-width:32rem;align-self:center}
+
+/* Lista de recursos (portada del sitio) */
+.recurso{
+  display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:center;
+  background:var(--fondo);border:1px solid var(--linea);border-radius:20px;box-shadow:var(--sombra);
+  padding:1.1rem 1.25rem;color:var(--tinta);text-decoration:none;
+}
+.recurso .obj{width:72px}
+.recurso h2{font-size:1.45rem}
+.recurso:hover{border-color:var(--tinta)}
+
+/* Pie, como el de las slides */
+.pie{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  border-top:1px solid var(--linea);padding-top:1.4rem;
+}
+.pie .handle{font-weight:700;color:var(--tinta);text-decoration:none}
+
+@media (max-width:560px){
+  body{font-size:16.5px}
+  .hoja{gap:3.25rem;padding-block:2rem 1.75rem}
+  .dos{grid-template-columns:1fr}
+  .frase{flex-direction:column;align-items:stretch}
+  .frase .pildora{align-self:flex-end}
+  .prompt pre{font-size:.94rem;padding:1rem 1rem 1.15rem}
+  .tarjeta{padding:1rem 1.05rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El correo de seguimiento que se escribe solo · @juanlievano1</title>
+<meta name="description" content="La plantilla para que la IA te deje listo el correo de seguimiento después de cada reunión comercial.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="El correo de seguimiento que se escribe solo">
+<meta property="og:description" content="La plantilla para que la IA te deje listo el correo después de cada reunión comercial.">
+<meta property="og:url" content="https://jlievano9.github.io/recursos/correo/">
+<meta property="og:image" content="https://jlievano9.github.io/recursos/img/og-correo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../img/sobre.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Manrope:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+<main class="hoja">
+
+  <header class="portada">
+    <img class="obj" src="../img/sobre.png" alt="" width="400" height="400">
+    <h1>El correo de seguimiento que <mark>se escribe solo</mark></h1>
+    <p class="sub">Una plantilla para que la IA te deje listo el correo después de cada reunión comercial. Funciona con herramientas gratis: cualquier grabador de reuniones que te dé la transcripción (Fathom tiene plan gratis) y cualquier asistente de IA (Claude, ChatGPT o Gemini en su versión gratis).</p>
+    <p class="leyenda"><mark class="llenar">[Lo resaltado]</mark> es lo que llenas tú.</p>
+  </header>
+
+  <section class="seccion" aria-labelledby="antes">
+    <div class="cabeza">
+      <h2 id="antes">Antes de empezar</h2>
+    </div>
+    <div class="cuerpo">
+      <p><strong>Avísale al cliente</strong> que la reunión se va a grabar y para qué. Siempre.</p>
+      <p><strong>Si usas Claude, conéctale dos cosas.</strong> Se hace una sola vez y desde ahí no vuelves a copiar y pegar:</p>
+      <div class="dos">
+        <div class="tarjeta">
+          <h3 class="etq">Fathom</h3>
+          <p>Inicia sesión en Fathom. Después, en Claude, abre el <a href="https://claude.ai/directory/connectors/fathom">conector de Fathom</a>, dale Conectar y acepta los permisos. Así Claude busca la reunión y lee la transcripción solo.</p>
+        </div>
+        <div class="tarjeta">
+          <h3 class="etq">Gmail</h3>
+          <p>En el mismo directorio de conectores busca Gmail y conéctalo con la cuenta desde la que le escribes a tus clientes. Así Claude te deja el correo como borrador, listo para revisar y enviar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="paso1">
+    <div class="cabeza">
+      <p class="contador">Paso 1 de 4</p>
+      <h2 id="paso1">Consigue la transcripción de la reunión</h2>
+    </div>
+    <div class="cuerpo">
+      <p>Si conectaste Fathom, sáltate este paso: Claude la busca solo.</p>
+      <p>Si usas otro grabador u otra IA, copia la transcripción completa (no solo el resumen).</p>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="paso2">
+    <div class="cabeza">
+      <p class="contador">Paso 2 de 4</p>
+      <h2 id="paso2">Pega esto en tu asistente de IA</h2>
+    </div>
+    <div class="cuerpo">
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="etq gris">Prompt</span>
+          <button class="pildora" type="button" data-copia="prompt-correo">Copiar</button>
+        </div>
+<pre id="prompt-correo">Eres mi asistente comercial. Lee la transcripción completa de mi reunión con <mark class="llenar">[cliente o empresa]</mark>.
+
+Escríbeme el correo de seguimiento que le voy a enviar hoy. Reglas:
+
+1. Saludo corto y un agradecimiento por algo concreto que el cliente dijo o compartió en la reunión. Nada genérico como "gracias por tu tiempo".
+2. Una línea que diga "Quedamos así:" y debajo los próximos pasos en viñetas:
+   - "Por mi parte:" lo que yo me comprometí a hacer, con fecha.
+   - "Por tu parte:" lo que el cliente se comprometió a hacer, con fecha si la dijo.
+   Si alguien más quedó involucrado (su jefe, otro equipo), nómbralo.
+3. Solo lo que se dijo en la reunión. Si una fecha o un compromiso no quedó claro, márcalo con [POR CONFIRMAR] y no lo inventes.
+4. Máximo 120 palabras, en el idioma del cliente y en mi tono: directo, cercano, sin frases de vendedor.
+5. Cierra con una sola línea, sin pedir nada nuevo.
+6. Si tienes acceso a mi Gmail, déjalo como borrador para el cliente. No lo envíes.
+
+Transcripción:
+<mark class="llenar">[Pégala aquí. Si conectaste Fathom, borra estas dos líneas: Claude la busca solo.]</mark></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="paso3">
+    <div class="cabeza">
+      <p class="contador">Paso 3 de 4</p>
+      <h2 id="paso3">Revísalo antes de enviarlo</h2>
+    </div>
+    <div class="cuerpo">
+      <p>La IA te deja el correo listo (en el chat o, si conectaste Gmail, en tus borradores), pero lo mandas tú. Revisa tres cosas:</p>
+      <ul class="revisar">
+        <li>Que las fechas sean las que acordaron.</li>
+        <li>Que no haya nada que el cliente no dijo.</li>
+        <li>Que suene a ti. Cambia lo que no dirías.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="paso4">
+    <div class="cabeza">
+      <p class="contador">Paso 4 de 4</p>
+      <h2 id="paso4">Guárdalo como skill (en Claude)</h2>
+    </div>
+    <div class="cuerpo">
+      <p>Cuando el correo quede como lo mandarías, cuéntale a Claude qué le cambiaste. Por ejemplo: <span class="gris">«Lo dejé más corto, puse las fechas con el día de la semana y en el cierre uso "Quedo atento"»</span>. Después pídele:</p>
+      <div class="frase">
+        <p id="frase-skill">Guarda la instrucción con estos ajustes como una skill que se llame procesar-reunion</p>
+        <button class="pildora" type="button" data-copia="frase-skill">Copiar</button>
+      </div>
+      <p>Desde ahí, después de cada reunión solo le escribes esto y te deja el borrador en Gmail, ya con tus ajustes:</p>
+      <div class="frase">
+        <p id="frase-procesa">Procesa la reunión con <mark class="llenar">[cliente]</mark></p>
+        <button class="pildora" type="button" data-copia="frase-procesa">Copiar</button>
+      </div>
+      <p class="gris">Si para crear la skill Claude te pide activar la ejecución de código, actívala en la configuración.</p>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="extra">
+    <div class="cabeza">
+      <img class="obj" src="../img/reloj.png" alt="" width="400" height="400">
+      <p class="contador">Extra · Claude Pro o Max</p>
+      <h2 id="extra">Los correos te esperan a la mañana siguiente</h2>
+      <p class="sub">Para cuando tienes reuniones todo el día.</p>
+    </div>
+    <div class="cuerpo">
+      <div class="tarjeta">
+        <p class="etq gris">Necesitas</p>
+        <p>El resto de la plantilla funciona gratis. Para esta parte:</p>
+        <ul class="requisitos">
+          <li>Claude Pro o Max.</li>
+          <li>Fathom y Gmail conectados (ver "Antes de empezar") y la skill procesar-reunion guardada (paso 4).</li>
+          <li>Cowork, no Claude Code: ahí es donde se crea la tarea.</li>
+        </ul>
+      </div>
+      <p>Con eso listo:</p>
+      <ol class="pasos-extra">
+        <li>
+          En la barra lateral de Cowork entra a Scheduled, dale New task, elige Create with Claude y pega esto:
+          <div class="prompt">
+            <div class="prompt-top">
+              <span class="etq gris">Tarea</span>
+              <button class="pildora" type="button" data-copia="prompt-tarea">Copiar</button>
+            </div>
+<pre id="prompt-tarea">Programa una tarea todos los días hábiles a las 6:00 p. m.:
+1. Busca en Fathom las reuniones de hoy con clientes.
+2. Por cada una, usa la skill procesar-reunion y deja el correo como borrador en Gmail, dirigido al cliente.
+3. No envíes nada. Al terminar, dime cuántos borradores dejaste y para quién.</pre>
+          </div>
+          <p class="nota">Si tu Claude ya no muestra Chat y Cowork por separado, pégalo en cualquier conversación.</p>
+        </li>
+        <li>Revisa el nombre, la hora y los días que te propone y dale Schedule. La tarea corre en la nube, así que no tienes que dejar el computador prendido.</li>
+        <li>Para probarla sin esperar a las 6:00 p. m., ábrela en Scheduled y dale Run now.</li>
+      </ol>
+      <p>Al otro día abres los borradores de Gmail, revisas cada uno como en el paso 3 y los mandas tú. La tarea nunca envía nada sola.</p>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="mano">
+    <div class="cabeza">
+      <h2 id="mano">La estructura, por si quieres escribirlo a mano</h2>
+    </div>
+    <div class="cuerpo">
+      <div class="correo">
+        <div class="correo-top"><span class="etq gris">Borrador</span></div>
+        <div class="correo-cuerpo">
+          <p>Hola <mark class="llenar">[nombre]</mark>, espero estés muy bien.</p>
+          <p>Gracias por el espacio de <mark class="llenar">[día]</mark> y por contarme <mark class="llenar">[algo concreto que compartió]</mark>.</p>
+          <div>
+            <p>Quedamos así:</p>
+            <ul>
+              <li>Por mi parte: <mark class="llenar">[qué haré]</mark> para <mark class="llenar">[fecha]</mark>.</li>
+              <li>Por mi parte: <mark class="llenar">[segundo compromiso, si lo hay]</mark>.</li>
+              <li>Por tu parte: <mark class="llenar">[qué hará el cliente]</mark>.</li>
+            </ul>
+          </div>
+          <p><mark class="llenar">[Una línea de cierre.]</mark></p>
+        </div>
+      </div>
+      <p class="razon">Lo que hace que funcione: el cliente no tiene que adivinar qué sigue ni quién lo hace.</p>
+    </div>
+  </section>
+
+  <footer class="pie">
+    <a class="handle" href="https://www.instagram.com/juanlievano1/">@juanlievano1</a>
+    <a class="pildora" href="../">Más recursos →</a>
+  </footer>
+</main>
+<script src="../copiar.js"></script>
+</body>
+</html>
