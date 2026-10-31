@@ -82,6 +82,36 @@ h1{
   padding:.5rem 1.1rem;font-size:.95rem;font-weight:500;margin-top:.35rem;
 }
 
+/* Encabezado de guía: ruta, autor e índice */
+.ruta{align-self:flex-start;font-size:.92rem;color:var(--gris);margin-bottom:.6rem;text-align:left}
+.ruta a{color:var(--gris)}
+.autor{font-size:.98rem;font-weight:500}
+.autor a{font-weight:700;color:var(--tinta)}
+.indice{
+  align-self:stretch;text-align:left;margin-top:.5rem;
+  background:var(--fondo);border:1px solid var(--linea);border-radius:20px;
+  padding:.85rem 1.25rem;
+}
+.indice summary{font-weight:800;cursor:pointer;min-height:1.75rem}
+.indice ol{list-style:none;padding:0;margin-top:.65rem;display:flex;flex-direction:column}
+.indice a{display:block;padding:.4rem 0;color:var(--tinta);text-decoration:none}
+.indice a:hover{text-decoration:underline}
+h2[id]{scroll-margin-top:1.25rem}
+
+/* Recuadro de advertencia, con el azul del marcador */
+.aviso{
+  background:rgba(211,220,255,.38);border:1px solid var(--marcador);border-radius:20px;
+  padding:1.05rem 1.25rem;display:flex;flex-direction:column;gap:.35rem;
+}
+
+/* Tabla de "qué necesitas" */
+.tabla-marco{background:var(--fondo);border:1px solid var(--linea);border-radius:20px;box-shadow:var(--sombra);overflow:hidden}
+.tabla{width:100%;border-collapse:collapse;line-height:1.45}
+.tabla th{background:var(--tarjeta);text-align:left;padding:.8rem 1.1rem}
+.tabla td{padding:.85rem 1.1rem;vertical-align:top;border-top:1px solid var(--linea)}
+.tabla td:first-child{width:52%;font-weight:700}
+.tabla small{display:block;font-size:.88rem;font-weight:500;color:var(--gris);margin-top:.15rem}
+
 /* Cabeza de cada sección, centrada como una slide */
 .seccion{display:flex;flex-direction:column;gap:1.4rem}
 .cabeza{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem}
@@ -164,7 +194,9 @@ h2{
   padding:1.1rem 1.25rem;color:var(--tinta);text-decoration:none;
 }
 .recurso .obj{width:72px}
+.recurso div{display:flex;flex-direction:column;gap:.3rem;min-width:0}
 .recurso h2{font-size:1.45rem}
+.recurso .promesa{font-size:.98rem;line-height:1.4;color:var(--gris)}
 .recurso:hover{border-color:var(--tinta)}
 
 /* Pie, como el de las slides */
@@ -182,5 +214,7 @@ h2{
   .frase .pildora{align-self:flex-end}
   .prompt pre{font-size:.94rem;padding:1rem 1rem 1.15rem}
   .tarjeta{padding:1rem 1.05rem}
+  .tabla th,.tabla td{padding-inline:.85rem}
 }
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
