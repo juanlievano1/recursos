@@ -1,0 +1,46 @@
+# Publica el sitio con los recursos cuya fecha ya llegó (publicar.json).
+# Corre con cada push y cada 15 minutos entre las 7:00 y las 8:45 de Bogotá, para abrir cada recurso cuando sale su video.
+name: Publicar recursos
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "0,15,30,45 12-13 * * *"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Armar el sitio
+        run: python3 publicar.py
+      - name: Ver si cambió la lista de recursos
+        id: cambio
+        run: |
+          curl -fsS https://juanlievano1.github.io/recursos/publicados.txt -o actuales.txt || touch actuales.txt
+          if [ "${{ github.event_name }}" = "schedule" ] && cmp -s actuales.txt _site/publicados.txt; then
+            echo "publicar=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "publicar=si" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.cambio.outputs.publicar == 'si'
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v4
+        id: despliegue
+        if: steps.cambio.outputs.publicar == 'si'
