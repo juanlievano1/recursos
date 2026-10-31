@@ -75,6 +75,8 @@ h1{
   line-height:1.0;
   letter-spacing:-.022em;
 }
+h1 .titulo{display:block;white-space:nowrap}
+h1 .libro{display:block;margin-top:.55rem;font-size:.52em;font-style:italic;font-weight:600;line-height:1.15;letter-spacing:-.01em}
 .sub{font-size:1.14rem;line-height:1.45;opacity:.86;max-width:34rem;text-wrap:balance}
 .leyenda{
   display:inline-flex;align-items:center;gap:.6rem;flex-wrap:wrap;justify-content:center;
@@ -188,6 +190,7 @@ h2{
 .razon{text-align:center;color:var(--gris);font-size:1.08rem;line-height:1.45;text-wrap:balance;max-width:32rem;align-self:center}
 
 /* Lista de recursos (portada del sitio) */
+.atajos{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:.35rem}
 .recurso{
   display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:center;
   background:var(--fondo);border:1px solid var(--linea);border-radius:20px;box-shadow:var(--sombra);
@@ -195,7 +198,7 @@ h2{
 }
 .recurso .obj{width:72px}
 .recurso div{display:flex;flex-direction:column;gap:.3rem;min-width:0}
-.recurso h2{font-size:1.45rem}
+.recurso h3{font-family:var(--titulo);font-weight:800;font-size:1.45rem;line-height:1.06;letter-spacing:-.02em}
 .recurso .promesa{font-size:.98rem;line-height:1.4;color:var(--gris)}
 .recurso:hover{border-color:var(--tinta)}
 
