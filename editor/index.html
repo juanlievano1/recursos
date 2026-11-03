@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claude Code como tu editor de video · @juanlievano1</title>
+<meta name="description" content="Los 6 pasos, clic por clic, y los prompts para que Claude Code edite tus reels.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Claude Code como tu editor de video">
+<meta property="og:description" content="Los 6 pasos, clic por clic, y los prompts para que Claude Code edite tus reels.">
+<meta property="og:url" content="https://juanlievano1.github.io/recursos/editor/">
+<meta property="og:image" content="https://juanlievano1.github.io/recursos/img/og-editor.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../img/claqueta.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Manrope:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+<main class="hoja">
+
+  <header class="portada">
+    <nav class="ruta" aria-label="Ruta"><a href="../">Recursos</a> / Editor de video</nav>
+    <img class="obj" src="../img/claqueta.png" alt="" width="400" height="400">
+    <p class="etq gris">Guía · Clic por clic</p>
+    <h1>Claude Code como tu <mark>editor de video</mark></h1>
+    <p class="sub">Los 6 pasos, sin saber programar: tú grabas y hablas, y Claude corta, pone subtítulos y gráficos.</p>
+    <p class="autor">Juan Liévano · <a href="https://www.instagram.com/juanlievano1/">@juanlievano1</a></p>
+    <p class="leyenda"><mark class="llenar">[Lo resaltado]</mark> es lo que cambias tú.</p>
+    <details class="indice">
+      <summary>En esta página</summary>
+      <ol>
+        <li><a href="#antes">Antes de empezar</a></li>
+        <li><a href="#paso1">Paso 1: Abre Claude Code</a></li>
+        <li><a href="#paso2">Paso 2: Crea las carpetas</a></li>
+        <li><a href="#paso3">Paso 3: Saca tu clave e instala todo</a></li>
+        <li><a href="#paso4">Paso 4: Enséñale tu estilo</a></li>
+        <li><a href="#paso5">Paso 5: Edita tu primer video</a></li>
+        <li><a href="#paso6">Paso 6: Corrige y guarda</a></li>
+        <li><a href="#correcciones">Correcciones que vale la pena pedir</a></li>
+        <li><a href="#plantilla">Si no tienes referencias</a></li>
+        <li><a href="#fallas">Si algo falla</a></li>
+        <li><a href="#resumen">Resumen</a></li>
+      </ol>
+    </details>
+  </header>
+
+  <section class="seccion" aria-labelledby="antes">
+    <div class="cabeza">
+      <h2 id="antes">Antes de empezar</h2>
+    </div>
+    <div class="cuerpo">
+      <div class="aviso">
+        <p class="etq">Ojo</p>
+        <p>Claude Code necesita un plan pago: con el de 20 dólares al mes alcanzó para editar mis reels. ElevenLabs regala créditos, y cada video que transcribe gasta parte de ellos: revisa tu saldo. La primera vez reserva un buen rato; después solo repites los pasos 5 y 6.</p>
+      </div>
+      <p><strong>Solo tienes que conseguir 3 cosas.</strong> Claude instala todo lo demás en el paso 3.</p>
+      <div class="tabla-marco">
+        <table class="tabla">
+          <thead>
+            <tr><th scope="col" class="etq gris">Consigues tú</th><th scope="col" class="etq gris">Para qué</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Un computador<small>Windows o Mac.</small></td><td>Ahí viven tus videos y ahí trabaja Claude.</td></tr>
+            <tr><td>Un plan pago de Claude<small>El de 20 dólares al mes.</small></td><td>Para usar Claude Code, el que hace la edición.</td></tr>
+            <tr><td>Una cuenta de ElevenLabs<small>Regala créditos al crear la cuenta.</small></td><td>Convierte tu voz en texto, palabra por palabra. Con eso, Claude sabe dónde cortar.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tabla-marco">
+        <table class="tabla">
+          <thead>
+            <tr><th scope="col" class="etq gris">Instala Claude</th><th scope="col" class="etq gris">Para qué</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>video-use</td><td>El editor: transcribe, corta, da color y arma el video.</td></tr>
+            <tr><td>FFmpeg</td><td>Hace los cortes y guarda el video final.</td></tr>
+            <tr><td>Remotion<small>Gratis para personas. Una empresa de 4 personas o más puede necesitar licencia: <a href="https://www.remotion.dev/license">revísalo aquí</a>.</small></td><td>Hace los subtítulos y los gráficos.</td></tr>
+            <tr><td>Python, Node.js y Git</td><td>Programas que las herramientas necesitan para funcionar. No los vas a tocar.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tabla-marco">
+        <table class="tabla">
+          <thead>
+            <tr><th scope="col" class="etq gris">Palabra</th><th scope="col" class="etq gris">Qué significa</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Prompt</td><td>El mensaje que le escribes a Claude. Aquí ya están escritos: los copias y los pegas.</td></tr>
+            <tr><td>Clave</td><td>Un código privado que deja a Claude usar tu cuenta de ElevenLabs.</td></tr>
+            <tr><td>Skill</td><td>Un archivo con instrucciones que Claude sigue cada vez. Ahí queda guardado tu estilo.</td></tr>
+            <tr><td>B-roll</td><td>Las tomas de apoyo que tapan tu cara mientras tu voz sigue sonando.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="paso1">
+    <div class="cabeza">
+      <p class="contador">Paso 1 de 6</p>
+      <h2 id="paso1">Abre Claude Code</h2>
+    </div>
+    <div class="cuerpo">
+      <ol class="pasos-extra">
+        <li>Entra a <a href="https://claude.com/download">claude.com/download</a> y descarga la app para tu computador.</li>
+        <li>Instálala e inicia sesión con tu cuenta de Claude.</li>
+        <li>Arriba, haz clic en la pestaña <strong>Code</strong>.</li>
+        <li>Donde dice el entorno, escoge <strong>Local</strong>.</li>
+        <li>Si estás en Windows y te pide Git, descárgalo de <a href="https://git-scm.com/download/win">git-scm.com</a>, instálalo con las opciones que trae y vuelve a abrir la app.</li>
+      </ol>
+      <div class="aviso">
+        <p class="etq">Usa la app, no el navegador</p>
+        <p>En el navegador, Claude trabaja en la nube y no puede ver los videos de tu computador. En Local, sí.</p>
+      </div>
+      <p><strong>Listo cuando:</strong> estás en la pestaña Code, en Local, y ves un cuadro para escribirle a Claude.</p>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="paso2">
+    <div class="cabeza">
+      <p class="contador">Paso 2 de 6</p>
+      <h2 id="paso2">Crea las carpetas</h2>
+    </div>
+    <div class="cuerpo">
+      <ol class="pasos-extra">
+        <li>En el escritorio de tu computador, haz clic derecho y crea una carpeta nueva. Ponle <strong>Mis videos</strong>.</li>
+        <li>Entra a esa carpeta y crea otras 3, con estos nombres exactos: <strong>crudos</strong>, <strong>referencias</strong> y <strong>editados</strong>.</li>
+        <li>En Claude Code, escoge <strong>Mis videos</strong> como la carpeta de trabajo.</li>
+      </ol>
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="etq gris">Así tiene que quedar</span>
+        </div>
+<pre>Mis videos/
+  crudos/       lo que grabas, sin editar
+  referencias/  los reels con la edición que te gusta
+  editados/     los videos terminados</pre>
+      </div>
+      <p><strong>Listo cuando:</strong> Claude Code muestra que está trabajando en la carpeta Mis videos.</p>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="paso3">
+    <div class="cabeza">
+      <p class="contador">Paso 3 de 6</p>
+      <h2 id="paso3">Saca tu clave e instala todo</h2>
+    </div>
+    <div class="cuerpo">
+      <p><strong>Primero, la clave de ElevenLabs:</strong></p>
+      <ol class="pasos-extra">
+        <li>Entra a <a href="https://elevenlabs.io">elevenlabs.io</a> y crea tu cuenta, o inicia sesión si ya tienes una.</li>
+        <li>Abre la <a href="https://elevenlabs.io/app/settings/api-keys">página de claves</a> (Settings, API Keys).</li>
+        <li>Haz clic en <strong>Create Key</strong>.</li>
+        <li>En el nombre, escribe <strong>Editor de video</strong>.</li>
+        <li>Deja encendido <strong>Restrict Key</strong>.</li>
+        <li>Busca <strong>Speech to Text</strong> en la lista y cámbialo a <strong>Access</strong>. Es el paso que más se olvida: sin este permiso, la transcripción falla.</li>
+        <li>Haz clic en <strong>Create Key</strong> y copia la clave de una vez. Solo se muestra esa vez. Si la pierdes, crea otra.</li>
+      </ol>
+      <div class="aviso">
+        <p class="etq">Tu clave es como una contraseña</p>
+        <p>No la publiques ni la dejes en una captura. El único sitio donde la pegas es el prompt de abajo.</p>
+      </div>
+      <p><strong>Después, instala todo:</strong></p>
+      <ol class="pasos-extra">
+        <li>Haz clic en <strong>Copiar</strong> y pega el prompt en el cuadro de Claude Code.</li>
+        <li>Borra <mark class="llenar">[PEGA TU CLAVE]</mark> y pega ahí tu clave. Dale Enter.</li>
+        <li>Claude te va a pedir permiso antes de correr cada comando. Lee qué va a hacer y apruébalo.</li>
+        <li>Si te dice que reinicies, cierra la app y ábrela en la misma carpeta.</li>
+      </ol>
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="etq gris">Prompt 1</span>
+          <button class="pildora" type="button" data-copia="prompt-1">Copiar</button>
+        </div>
+<pre id="prompt-1">Vas a editar mis reels verticales (1080x1920). Instala y deja funcionando:
+1. video-use: https://github.com/browser-use/video-use (sigue su install.md)
+2. FFmpeg
+3. Remotion, para subtítulos y gráficos
+
+Mi clave de ElevenLabs: <mark class="llenar">[PEGA TU CLAVE]</mark>
+Guárdala donde diga install.md.
+
+Si falta Python, Node.js o Git, instálalos. Al final dime qué quedó funcionando. No edites nada todavía.</pre>
+      </div>
+      <p>Cuando termine, pega este para comprobar que todo quedó bien:</p>
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="etq gris">Revisión</span>
+          <button class="pildora" type="button" data-copia="prompt-revision">Copiar</button>
+        </div>
+<pre id="prompt-revision">Revisa que video-use, FFmpeg, Remotion, Python y Node.js funcionen, y que mi clave de ElevenLabs haya quedado guardada, sin mostrármela. Arregla lo que falle y dime en palabras simples qué arreglaste.</pre>
+      </div>
+      <p><strong>Listo cuando:</strong> Claude te responde que todo funciona.</p>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="paso4">
+    <div class="cabeza">
+      <p class="contador">Paso 4 de 6</p>
+      <h2 id="paso4">Enséñale tu estilo</h2>
+      <p class="sub">Este es el paso que hace que tus videos se vean bien.</p>
+    </div>
+    <div class="cuerpo">
+      <ol class="pasos-extra">
+        <li>Busca unos 5 reels con la edición que te gusta, mejor si son de la misma cuenta. Pueden ser tuyos: una sola cuenta le da un estilo más claro.</li>
+        <li>Guárdalos en tu celular. En Instagram, abre el botón de compartir y toca <strong>Descargar</strong>, si te aparece. En TikTok, <strong>Compartir</strong> y <strong>Guardar video</strong>. Si no te aparece, escoge otro.</li>
+        <li>Pásalos al computador (con cable, Drive o WhatsApp Web) y déjalos en la carpeta <strong>referencias</strong>.</li>
+        <li>Copia este prompt, pégalo en Claude Code y dale Enter.</li>
+      </ol>
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="etq gris">Prompt 2</span>
+          <button class="pildora" type="button" data-copia="prompt-2">Copiar</button>
+        </div>
+<pre id="prompt-2">En referencias/ hay 5 reels con la edición que me gusta.
+Dime qué tienen en común: duración de cada plano, cortes, zooms, subtítulos, gráficos, b-roll, música, efectos y qué pasa en los primeros 3 segundos.
+Pregúntame lo que no tengas claro.
+Cuando te diga que sí, guárdalo como la skill mi-estilo-de-edicion.</pre>
+      </div>
+      <ol class="pasos-extra" start="5">
+        <li>Lee lo que te responde y contesta sus preguntas. Si algo no es lo que quieres, díselo ("los subtítulos más grandes", "sin emojis").</li>
+        <li>Cuando estés de acuerdo, escríbele: <strong>Sí, guárdala</strong>.</li>
+      </ol>
+      <div class="aviso">
+        <p class="etq">Copia el estilo, no el video</p>
+        <p>Esos reels son solo para que Claude los estudie. No publiques nada de ellos: ni las tomas, ni la música, ni la marca de otra persona.</p>
+      </div>
+      <p><strong>Listo cuando:</strong> Claude te confirma que guardó la skill mi-estilo-de-edicion.</p>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="paso5">
+    <div class="cabeza">
+      <p class="contador">Paso 5 de 6</p>
+      <h2 id="paso5">Edita tu primer video</h2>
+    </div>
+    <div class="cuerpo">
+      <ol class="pasos-extra">
+        <li>Graba en vertical. Si te equivocas, repite la frase y sigue: Claude escoge la mejor toma de cada una.</li>
+        <li>Pasa el video al computador y déjalo en la carpeta <strong>crudos</strong>.</li>
+        <li>En el selector de modelo de Claude Code, escoge el más potente que te aparezca (hoy, Opus 5.5).</li>
+        <li>Copia este prompt, pégalo y dale Enter.</li>
+      </ol>
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="etq gris">Prompt 3</span>
+          <button class="pildora" type="button" data-copia="prompt-3">Copiar</button>
+        </div>
+<pre id="prompt-3">Edita el video que está en crudos/ con video-use y la skill mi-estilo-de-edicion.
+Antes de cortar, muéstrame las tomas, el gancho, los gráficos, el b-roll y la música, y espera mi sí.
+Guarda el video final en editados/.</pre>
+      </div>
+      <ol class="pasos-extra" start="5">
+        <li>Claude te muestra el plan antes de cortar. Léelo y responde <strong>sí</strong>, o dile qué cambiar.</li>
+        <li>Espera y aprueba lo que te pida. Deja la app abierta mientras trabaja.</li>
+        <li>Abre la carpeta <strong>editados</strong> y mira el video.</li>
+      </ol>
+      <p>¿No tienes tomas de apoyo ni música? Agrégale esto al prompt: <strong>"Busca el b-roll en Pexels y la música y los efectos en Pixabay"</strong>. Las dos páginas son gratis.</p>
+      <p><strong>Listo cuando:</strong> tienes el video en la carpeta editados.</p>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="paso6">
+    <div class="cabeza">
+      <p class="contador">Paso 6 de 6</p>
+      <h2 id="paso6">Corrige y guarda</h2>
+      <p class="sub">La primera versión no te va a gustar. Para eso es este paso.</p>
+    </div>
+    <div class="cuerpo">
+      <ol class="pasos-extra">
+        <li>Mira el video en el celular, que es donde lo va a ver la gente.</li>
+        <li>Dile a Claude qué cambiar, con tus palabras. No hay línea de tiempo que tocar. Si es en un punto exacto, dile el segundo: <strong>"En el segundo 12, corta directo a la frase donde digo..."</strong>.</li>
+        <li>Repite hasta que te guste. Tienes ideas en la <a href="#correcciones">tabla de abajo</a>.</li>
+        <li>Cuando lo apruebes, pega este prompt. No te lo saltes: es lo que hace que el próximo video salga mejor desde el principio.</li>
+      </ol>
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="etq gris">Prompt 4</span>
+          <button class="pildora" type="button" data-copia="prompt-4">Copiar</button>
+        </div>
+<pre id="prompt-4">Ya lo aprobé. Guarda en la skill mi-estilo-de-edicion todo lo que te corregí en este video, para que el próximo salga así desde el principio. Muéstrame qué agregaste.</pre>
+      </div>
+      <p><strong>Desde el segundo video</strong> solo repites los pasos 5 y 6. Lo que le corriges hoy, en el próximo video ya lo sabe.</p>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="correcciones">
+    <div class="cabeza">
+      <h2 id="correcciones">Correcciones que vale la pena pedir</h2>
+      <p class="sub">Salen de editar reels reales con este proceso. Cópialas tal cual.</p>
+    </div>
+    <div class="cuerpo">
+      <div class="tabla-marco">
+        <table class="tabla">
+          <thead>
+            <tr><th scope="col" class="etq gris">Si pasa esto</th><th scope="col" class="etq gris">Dile esto</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Las frases casi se pisan</td><td>Deja 0,3 segundos de aire entre frases, y menos en las comas.</td></tr>
+            <tr><td>Los zooms marean</td><td>Zooms pequeños y suaves, centrados en mi cara. Nunca más de 15%.</td></tr>
+            <tr><td>Los subtítulos tapan la cara o no se leen</td><td>Bájalos a la altura del pecho. Mide que no caigan sobre una zona blanca.</td></tr>
+            <tr><td>El subtítulo no dice lo que suena</td><td>Transcribe la voz final y compárala palabra por palabra con los subtítulos.</td></tr>
+            <tr><td>Se nota que estás leyendo</td><td>Revisa mis ojos en cada plano de cara. Si miro abajo, cambia de toma o tápalo con b-roll.</td></tr>
+            <tr><td>La voz y la imagen no coinciden</td><td>Mide la sincronía del audio en varios puntos del video, también al final.</td></tr>
+            <tr><td>La música compite con la voz</td><td>Déjala 26 dB por debajo de la voz.</td></tr>
+            <tr><td>El b-roll no dice nada</td><td>Cada toma tiene que ilustrar la frase que suena encima, no el tema en general.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="plantilla">
+    <div class="cabeza">
+      <h2 id="plantilla">Si no tienes referencias</h2>
+      <p class="sub">Usa esto en vez del paso 4.</p>
+    </div>
+    <div class="cuerpo">
+      <p>Copia el prompt, cambia lo resaltado y dale Enter. Lo que no sepas, bórralo: Claude te lo pregunta.</p>
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="etq gris">Prompt</span>
+          <button class="pildora" type="button" data-copia="prompt-skill">Copiar</button>
+        </div>
+<pre id="prompt-skill">Crea la skill mi-estilo-de-edicion con esto. Lo que falte, pregúntamelo antes de guardarla.
+
+Formato: 1080x1920, 30 fps, -14 LUFS.
+Cara a cámara: <mark class="llenar">[porcentaje del tiempo y en qué momentos]</mark>
+Duración de cada plano: <mark class="llenar">[por ejemplo, de 1 a 2 segundos]</mark>
+Cortes: sin pausas largas ni muletillas, con <mark class="llenar">[0,3]</mark> segundos de aire entre frases.
+Zooms: <mark class="llenar">[qué tan grandes y cuándo]</mark>
+Subtítulos: <mark class="llenar">[fuente, tamaño, color, posición y palabras por línea]</mark>
+Colores: <mark class="llenar">[tus colores]</mark>
+B-roll: cada toma ilustra la frase que suena. Primero el mío; si no hay, Pexels.
+Gráficos: <mark class="llenar">[qué estilo te gusta]</mark>
+Música: <mark class="llenar">[qué tipo]</mark>, <mark class="llenar">[26]</mark> dB por debajo de la voz. De Pixabay.
+Efectos de sonido: <mark class="llenar">[cuántos y de qué tipo]</mark>. Nunca el mismo repetido.
+Primeros 3 segundos: <mark class="llenar">[qué pasa en el gancho]</mark>
+Último cuadro: <mark class="llenar">[por ejemplo, yo mirando a cámara]</mark>
+
+Reglas: confirma el plan antes de cortar. Antes de entregar, revisa cada corte y la sincronía del audio. Si no tienes claro algo, pregúntame con opciones.</pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="fallas">
+    <div class="cabeza">
+      <h2 id="fallas">Si algo falla</h2>
+      <p class="sub">Primero pega esto. Casi siempre lo resuelve Claude.</p>
+    </div>
+    <div class="cuerpo">
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="etq gris">Para cualquier error</span>
+          <button class="pildora" type="button" data-copia="prompt-error">Copiar</button>
+        </div>
+<pre id="prompt-error">Algo falló. Lee el último error, explícame en palabras simples qué pasó, arréglalo e inténtalo otra vez. Si necesitas algo de mí, dime exactamente qué.</pre>
+      </div>
+      <details class="indice">
+        <summary>Claude no encuentra mis videos</summary>
+        <p>Revisa que estés en Local, que hayas escogido la carpeta Mis videos y que el video esté dentro de crudos.</p>
+      </details>
+      <details class="indice">
+        <summary>Falla la transcripción o sale un error de ElevenLabs</summary>
+        <p>Casi siempre es el permiso. Crea otra clave con Speech to Text en Access y pásasela a Claude. Revisa también que te queden créditos.</p>
+      </details>
+      <details class="indice">
+        <summary>Dice que no encuentra FFmpeg o una herramienta</summary>
+        <p>Cierra la app, ábrela en la misma carpeta y pega el prompt de revisión del paso 3.</p>
+      </details>
+      <details class="indice">
+        <summary>El video no se parece a mis referencias</summary>
+        <p>Claude no ve el video como tú: lo lee por partes. Dile qué es distinto con detalle ("el plano dura mucho", "el subtítulo es más grande") y guarda la corrección con el prompt 4.</p>
+      </details>
+      <details class="indice">
+        <summary>Se me acaba rápido el uso de Claude</summary>
+        <p>Editar video gasta bastante. Abre una conversación nueva para cada video y empieza con videos cortos.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="seccion" aria-labelledby="resumen">
+    <div class="cabeza">
+      <h2 id="resumen">Resumen</h2>
+    </div>
+    <div class="cuerpo">
+      <ul class="revisar">
+        <li><span>Abre la app de Claude, en Code y en Local.</span></li>
+        <li><span>Crea Mis videos, con crudos, referencias y editados.</span></li>
+        <li><span>Saca tu clave de ElevenLabs con Speech to Text y pega el prompt 1.</span></li>
+        <li><span>Deja 5 reels en referencias y pega el prompt 2.</span></li>
+        <li><span>Deja tu video en crudos y pega el prompt 3.</span></li>
+        <li><span>Corrígelo con tus palabras y, al aprobarlo, pega el prompt 4.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="pie">
+    <a class="handle" href="https://www.instagram.com/juanlievano1/">@juanlievano1</a>
+    <a class="pildora" href="../">Más recursos →</a>
+  </footer>
+</main>
+<script src="../copiar.js"></script>
+</body>
+</html>

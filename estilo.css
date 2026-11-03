@@ -98,6 +98,7 @@ h1 .libro{display:block;margin-top:.55rem;font-size:.52em;font-style:italic;font
 .indice ol{list-style:none;padding:0;margin-top:.65rem;display:flex;flex-direction:column}
 .indice a{display:block;padding:.4rem 0;color:var(--tinta);text-decoration:none}
 .indice a:hover{text-decoration:underline}
+.indice > p{margin-top:.5rem}
 h2[id]{scroll-margin-top:1.25rem}
 
 /* Recuadro de advertencia, con el azul del marcador */
