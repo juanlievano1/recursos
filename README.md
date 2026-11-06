@@ -1,6 +1,6 @@
 # Recursos de @juanlievano1
 
-Las guías, plantillas y prompts que comparto en Instagram, listos para copiar.
+Lo que comparto en Instagram, listo para usar.
 
 ## Guías
 
