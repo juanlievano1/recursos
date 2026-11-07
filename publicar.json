@@ -1,8 +1,8 @@
 {
-  "_nota": "Cada carpeta de recurso se abre al público en la fecha de su video. Si el video cambia de fecha, se cambia aquí.",
+  "_nota": "Cada carpeta de recurso se abre al público en la fecha de su video. Si el video cambia de fecha, se cambia aquí. como-ganar-amigos y editor quedan en 2027 porque sus videos se pausaron el 7 nov 2026.",
   "recursos": {
     "correo": "2026-11-06T07:00:00-05:00",
-    "como-ganar-amigos": "2026-11-12T07:00:00-05:00",
-    "editor": "2026-11-13T07:00:00-05:00"
+    "como-ganar-amigos": "2027-12-31T07:00:00-05:00",
+    "editor": "2027-12-31T07:00:00-05:00"
   }
 }
